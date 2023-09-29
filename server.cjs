@@ -10,27 +10,27 @@ app.use('/', express.static(path.join(__dirname, 'website')));
 });*/
 
 
-// Production environment: serve the build
+// Production environment: serve the dist
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, 'build')));
+    app.use(express.static(path.join(__dirname, 'dist')));
 
     /*
 
         app.get('/tos', (_, res) => {
-            res.sendFile(path.join(__dirname, 'build', 'tos.html'));
+            res.sendFile(path.join(__dirname, 'dist', 'tos.html'));
         });
 
         app.get('/sub', (_, res) => {
-            res.sendFile(path.join(__dirname, 'build', 'sub.html'));
+            res.sendFile(path.join(__dirname, 'dist', 'sub.html'));
         });
 
         app.get('/tok', (_, res) => {
-            res.sendFile(path.join(__dirname, 'build', 'tok.html'));
+            res.sendFile(path.join(__dirname, 'dist', 'tok.html'));
         });
     */
 
     app.get('*', (_, res) => {
-        res.sendFile(path.join(__dirname, 'build', 'index.html'));
+        res.sendFile(path.join(__dirname, 'dist', 'index.html'));
     });
 }
 // Development environment: forward the requests to localhost:5992
